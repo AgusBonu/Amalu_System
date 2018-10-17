@@ -1,0 +1,80 @@
+<div class="main-content">
+    <div class="container-fluid">
+      <div class="row">
+          <div class="col-md-12">
+              <div class="card">
+                <div class="card-header card-header-success card-header-icon">
+                  <div class="card-icon">
+                    <i class="material-icons"></i>
+                  </div>
+                  <h4 class="card-title">Listado de clientes</h4>
+                </div>
+                  <div class="card-body">
+                      <div class="toolbar">
+                          <!--        Here you can write extra buttons/actions for the toolbar              -->
+                      </div>
+                      
+                      <div class="material-datatables">
+                                <mat-form-field>
+                                    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filtrar">
+                                  </mat-form-field>
+                                  <mat-table #table [dataSource]="dataSource" matSort>
+                                
+                                    <!-- Position Column -->
+                                    <ng-container matColumnDef="idpersona">
+                                      <mat-header-cell *matHeaderCellDef mat-sort-header> Id </mat-header-cell>
+                                      <mat-cell *matCellDef="let element" class="text-center"> {{element.CHASSI}} </mat-cell>
+                                    </ng-container>
+                                
+                                    <!-- Name Column -->
+                                    <ng-container matColumnDef="tipo_persona">
+                                      <mat-header-cell *matHeaderCellDef mat-sort-header> Tipo </mat-header-cell>
+                                      <mat-cell *matCellDef="let element"> {{element.MODELO | slice:0:25}} </mat-cell>
+                                    </ng-container>
+                                
+                                    <!-- Weight Column -->
+                                    <ng-container matColumnDef="nombre">
+                                      <mat-header-cell *matHeaderCellDef> Nombre </mat-header-cell>
+                                      <mat-cell *matCellDef="let element"> {{element.MUNICIPIOCONCESSIONARIA}} </mat-cell>
+                                    </ng-container>
+                                
+                                    <!-- Weight Column -->
+                                    <ng-container matColumnDef="tipo_documento">
+                                        <mat-header-cell *matHeaderCellDef> Tipo Doc </mat-header-cell>
+                                        <mat-cell *matCellDef="let element"> {{element.ESTADOCONCESSIONARIA}} </mat-cell>
+                                      </ng-container>
+                      
+                                    <!-- Symbol Column -->
+                                    <ng-container matColumnDef="num_documento">
+                                      <mat-header-cell *matHeaderCellDef> Num Doc </mat-header-cell>
+                                      <mat-cell *matCellDef="let element"> {{element.PATIO}} </mat-cell>
+                                    </ng-container>
+                      
+                                    <!-- Symbol Column -->
+                                    <ng-container matColumnDef="direccion">
+                                      <mat-header-cell *matHeaderCellDef> Direccion </mat-header-cell>
+                                      <mat-cell *matCellDef="let element"> {{element.CANAL}} </mat-cell>
+                                    </ng-container>
+                                    <!-- Symbol Column -->
+                                    <ng-container matColumnDef="telefono">
+                                      <mat-header-cell *matHeaderCellDef> Telefono </mat-header-cell>
+                                      <mat-cell *matCellDef="let element"> {{element.DIAS}} </mat-cell>
+                                    </ng-container>
+                                    <!-- Symbol Column -->
+                                    <ng-container matColumnDef="email">
+                                      <mat-header-cell *matHeaderCellDef> Email </mat-header-cell>
+                                      <mat-cell *matCellDef="let element"> {{element.LOTE}} </mat-cell>
+                                    </ng-container>        
+                                    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                                    <mat-row *matRowDef="let row; columns: displayedColumns;"
+                                             (click)="selection.toggle(row)">
+                                    </mat-row>
+                                  </mat-table>
+                                  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+    </div>
+</div>

@@ -1,0 +1,23 @@
+.mat-column-chasis
+{
+    flex: 0 0 120px;
+}
+.mat-column-modelo
+{
+    flex: 0 0 150px;
+}
+.mat-column-municipio
+{
+    flex: 0 0 95px;
+}
+.mat-column-localidad
+{
+    flex: 0 0 95px;
+}
+.mat-cell{
+    font-size:12px;
+}
+.mat-column-fecha
+{
+    flex: 0 0 85px;
+}
