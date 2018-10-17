@@ -214,13 +214,7 @@ export class NavbarComponent implements OnInit {
 
 
     logout(): void {
-        this.user.logout().subscribe(data => {
-            if(data.success) {
               this.router.navigate(['/pages/login'])
               this.authService.logout()
-            } else {
-              window.alert('Some problem')
-            }
-          })
       }
 }

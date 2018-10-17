@@ -34,9 +34,5 @@ export class UserService {
     return status;
   }
 
-  logout() {
-    return this.http.post<logoutStatus>('http://portaldeclientes.eltatransportes.com.ar/logout.php',{})
-    //1return this.http.post<logoutStatus>('http://www.elta.com.ar/prueba/logout.php',{})
-  }
 
 }
