@@ -6,13 +6,13 @@ import { MaterialModule } from '../app.module';
 import { NouisliderModule } from 'ng2-nouislider';
 import { TagInputModule } from 'ngx-chips';
 
+import { ProductosRoutes } from './productos.routing';
 import { ListadoComponent } from './listado/listado.component';
-import { ClientesRoutes } from './clientes.routing';
 
 @NgModule({
   imports: [
     CommonModule,
-    RouterModule.forChild(ClientesRoutes),
+    RouterModule.forChild(ProductosRoutes),
     FormsModule,
     MaterialModule,
     ReactiveFormsModule,
@@ -21,8 +21,8 @@ import { ClientesRoutes } from './clientes.routing';
     MaterialModule
   ],
   declarations: [
-      ListadoComponent
+    ListadoComponent
   ]
 })
 
-export class ClientesModule {}
+export class ProductosModule {}
