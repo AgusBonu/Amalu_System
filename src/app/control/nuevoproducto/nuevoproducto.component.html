@@ -1,0 +1,66 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="card" style="margin-top:0px">
+            <form [formGroup]="register">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <mat-form-field class="example-full-width has-label" [ngClass]="displayFieldCss(register, 'nombre')">
+                                <input type="text" matInput placeholder="Nombre" formControlName="nombre">
+                                <app-field-error-display [displayError]="isFieldValid(register, 'nombre')" errorMsg="Ingrese un nombre!!!">
+                                </app-field-error-display>
+                            </mat-form-field>
+
+                            <mat-form-field>
+                                <mat-select placeholder="Categoria" name="categoria" formControlName="categoria">
+                                    <mat-option *ngFor="let item of categorias" [value]="item[0]">
+                                        {{ item[1] }}
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+
+                            <mat-form-field class="example-full-width has-label" [ngClass]="displayFieldCss(register, 'cantidad')">
+                                <input type="text" matInput placeholder="Cantidad" formControlName="cantidad">
+                                <app-field-error-display [displayError]="isFieldValid(register, 'cantidad')" errorMsg="Ingrese una cantidad!!!">
+                                </app-field-error-display>
+                            </mat-form-field>
+
+                            <mat-form-field class="example-full-width has-label" [ngClass]="displayFieldCss(register, 'descripcion')">
+                                <input type="text" matInput placeholder="Descripcion" formControlName="descripcion">
+                                <app-field-error-display [displayError]="isFieldValid(register, 'descripcion')" errorMsg="Ingrese un descripcion!!!">
+                                </app-field-error-display>
+                            </mat-form-field>
+
+                            <mat-form-field class="example-full-width has-label" [ngClass]="displayFieldCss(register, 'precio')">
+                                <input type="text" matInput placeholder="Precio" formControlName="precio">
+                                <app-field-error-display [displayError]="isFieldValid(register, 'precio')" errorMsg="Ingrese un precio!!!">
+                                </app-field-error-display>
+                            </mat-form-field>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="fileinput fileinput-new text-center" data-provides="fileinput">
+                                <div class="fileinput-new thumbnail">
+                                    <img src="./assets/img/image_placeholder.jpg" alt="...">
+                                </div>
+                                <div class="fileinput-preview fileinput-exists thumbnail"></div>
+                                <div>
+                                    <span class="btn btn-success btn-round btn-file">
+                                        <span class="fileinput-new">Select image</span>
+                                    <span class="fileinput-exists">Change</span>
+
+                                    <input type="file" (change)="onFileSelected($event)" formControlName="imagen" />
+
+                                    </span>
+                                    <a href="#pablo" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer text-right">
+                    <input value="Registrar" mat-raised-button type="submit" class="btn btn-success" (click)="onRegister()" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

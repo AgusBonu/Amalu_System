@@ -37,13 +37,15 @@ export const ROUTES: RouteInfo[] = [{
         ]
     },
     ,{
-        path: '/productos',
-        title: 'Productos',
+        path: '/control',
+        title: 'control',
         type: 'sub',
         icontype: 'apps',
-        collapse: 'productos',
+        collapse: 'control',
         children: [
-            {path: 'listado', title: 'Listado', ab:'L'}
+            {path: 'productos', title: 'Productos', ab:'P'},
+            {path: 'categorias', title: 'Categorias', ab:'C'},
+            {path: 'usuarios', title: 'Usuarios', ab:'U'}
         ]
     }
 ];

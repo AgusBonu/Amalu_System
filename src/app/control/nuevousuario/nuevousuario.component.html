@@ -1,0 +1,66 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="card" style="margin-top:0px">
+            <form [formGroup]="register">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <mat-form-field class="example-full-width has-label" [ngClass]="displayFieldCss(register, 'nombre')">
+                                <input type="text" matInput placeholder="Nombre" formControlName="nombre">
+                                <app-field-error-display [displayError]="isFieldValid(register, 'nombre')" errorMsg="Ingrese un nombre!!!">
+                                </app-field-error-display>
+                            </mat-form-field>
+
+                            <mat-form-field class="example-full-width has-label" [ngClass]="displayFieldCss(register, 'documento')">
+                                <input type="number" matInput placeholder="DNI" formControlName="documento">
+                                <app-field-error-display [displayError]="isFieldValid(register, 'documento')" errorMsg="Ingrese un DNI!!!">
+                                </app-field-error-display>
+                            </mat-form-field>
+
+                            <mat-form-field class="example-full-width has-label" [ngClass]="displayFieldCss(register, 'direccion')">
+                                <input type="text" matInput placeholder="Direccion" formControlName="direccion">
+                                <app-field-error-display [displayError]="isFieldValid(register, 'direccion')" errorMsg="Ingrese una direccion!!!">
+                                </app-field-error-display>
+                            </mat-form-field>
+
+                            <mat-form-field class="example-full-width has-label" [ngClass]="displayFieldCss(register, 'telefono')">
+                                <input type="tel" matInput placeholder="Telefono" formControlName="telefono">
+                                <app-field-error-display [displayError]="isFieldValid(register, 'telefono')" errorMsg="Ingrese un telefono!!!">
+                                </app-field-error-display>
+                            </mat-form-field>
+                        </div>
+                        <div class="col-md-6">
+
+                            <mat-form-field class="example-full-width has-label" [ngClass]="displayFieldCss(register, 'email')">
+                                <input type="email" matInput placeholder="Email" formControlName="email">
+                                <app-field-error-display [displayError]="isFieldValid(register, 'email')" errorMsg="Ingrese un email!!!">
+                                </app-field-error-display>
+                            </mat-form-field>
+
+                            <mat-form-field class="example-full-width has-label" [ngClass]="displayFieldCss(register, 'cargo')">
+                                <input type="text" matInput placeholder="Cargo" formControlName="cargo">
+                                <app-field-error-display [displayError]="isFieldValid(register, 'cargo')" errorMsg="Ingrese un cargo!!!">
+                                </app-field-error-display>
+                            </mat-form-field>
+
+                            <mat-form-field class="example-full-width has-label" [ngClass]="displayFieldCss(register, 'login')">
+                                <input type="text" matInput placeholder="Login" formControlName="login">
+                                <app-field-error-display [displayError]="isFieldValid(register, 'login')" errorMsg="Ingrese un login!!!">
+                                </app-field-error-display>
+                            </mat-form-field>
+
+                            <mat-form-field class="example-full-width has-label" [ngClass]="displayFieldCss(register, 'contra')">
+                                <input type="password" matInput placeholder="Contraseña" formControlName="contra">
+                                <app-field-error-display [displayError]="isFieldValid(register, 'contra')" errorMsg="Ingrese una contraseña!!!">
+                                </app-field-error-display>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer text-right">
+                    <input value="Registrar" mat-raised-button type="submit" class="btn btn-success" (click)="onRegister()" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

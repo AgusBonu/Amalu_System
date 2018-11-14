@@ -1,0 +1,83 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="card" style="margin-top:0px">
+            <div class="card-body">
+                <div id='loadingListadoProducto' class="loader">
+                    <svg class="circular" viewBox="25 25 50 50">
+                            <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/>
+                        </svg>
+                </div>
+                <div class="material-datatables">
+                    <button class="btn btn-success btn-sm" id="btnActualizarListado" style="float:right" (click)="Actualizar()" disabled>
+                            Actualizar
+                        </button>
+
+                    <div style="clear:both"></div>
+                    <mat-form-field>
+                        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filtrar">
+                    </mat-form-field>
+                    <mat-table #table [dataSource]="dataSource">
+
+                        <!-- Position Column -->
+                        <ng-container matColumnDef="accion">
+                            <mat-header-cell *matHeaderCellDef> Accion </mat-header-cell>
+                            <mat-cell *matCellDef="let element" class="text-center"> <a (click)="eliminar(element[0])" class="zoom"><i class=" material-icons ">remove</i></a> </mat-cell>
+                        </ng-container>
+
+                        <!-- Position Column -->
+                        <ng-container matColumnDef="idusuario">
+                            <mat-header-cell *matHeaderCellDef> Id </mat-header-cell>
+                            <mat-cell *matCellDef="let element" class="text-center"> {{element[0]}} </mat-cell>
+                        </ng-container>
+
+                        <!-- Position Column -->
+                        <ng-container matColumnDef="nombre">
+                            <mat-header-cell *matHeaderCellDef> Nombre </mat-header-cell>
+                            <mat-cell *matCellDef="let element" class="text-center"> {{element[1]}} </mat-cell>
+                        </ng-container>
+
+                        <!-- Position Column -->
+                        <ng-container matColumnDef="documento">
+                            <mat-header-cell *matHeaderCellDef> Documento </mat-header-cell>
+                            <mat-cell *matCellDef="let element" class="text-center"> {{element[2]}} </mat-cell>
+                        </ng-container>
+
+                        <!-- Position Column -->
+                        <ng-container matColumnDef="direccion">
+                            <mat-header-cell *matHeaderCellDef> Direccion </mat-header-cell>
+                            <mat-cell *matCellDef="let element" class="text-center"> {{element[3]}} </mat-cell>
+                        </ng-container>
+
+                        <!-- Position Column -->
+                        <ng-container matColumnDef="telefono">
+                            <mat-header-cell *matHeaderCellDef> Telefono </mat-header-cell>
+                            <mat-cell *matCellDef="let element" class="text-center"> {{element[4]}} </mat-cell>
+                        </ng-container>
+
+                        <!-- Position Column -->
+                        <ng-container matColumnDef="email">
+                            <mat-header-cell *matHeaderCellDef> Email </mat-header-cell>
+                            <mat-cell *matCellDef="let element" class="text-center"> {{element[5]}} </mat-cell>
+                        </ng-container>
+
+                        <!-- Position Column -->
+                        <ng-container matColumnDef="cargo">
+                            <mat-header-cell *matHeaderCellDef> Cargo </mat-header-cell>
+                            <mat-cell *matCellDef="let element" class="text-center"> {{element[6]}} </mat-cell>
+                        </ng-container>
+
+                        <!-- Position Column -->
+                        <ng-container matColumnDef="login">
+                            <mat-header-cell *matHeaderCellDef> Login </mat-header-cell>
+                            <mat-cell *matCellDef="let element" class="text-center"> {{element[7]}} </mat-cell>
+                        </ng-container>
+
+                        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+                    </mat-table>
+                    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

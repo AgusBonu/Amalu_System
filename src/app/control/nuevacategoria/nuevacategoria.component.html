@@ -1,0 +1,26 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="card" style="margin-top:0px">
+            <form [formGroup]="register">
+                <div class="card-body">
+
+                    <mat-form-field class="example-full-width has-label" [ngClass]="{'has-success':validConfirmPasswordRegister===true}" [ngClass]="displayFieldCss(register, 'nombre')">
+                        <input type="text" matInput id="nombre" placeholder="Nombre" formControlName="nombre">
+                        <app-field-error-display [displayError]="isFieldValid(register, 'nombre')" errorMsg="Ingrese un nombre!!!">
+                        </app-field-error-display>
+                    </mat-form-field>
+
+                    <mat-form-field class="example-full-width has-label" [ngClass]="{'has-success':validConfirmPasswordRegister===true}" [ngClass]="displayFieldCss(register, 'descripcion')">
+                        <input type="text" matInput id="descripcion" placeholder="Descripcion" formControlName="descripcion">
+                        <app-field-error-display [displayError]="isFieldValid(register, 'descripcion')" errorMsg="Ingrese un descripcion!!!">
+                        </app-field-error-display>
+                    </mat-form-field>
+
+                </div>
+                <div class="card-footer text-right">
+                    <button mat-raised-button type="submit" class="btn btn-success" (click)="onRegister()">Registrar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

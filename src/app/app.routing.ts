@@ -18,36 +18,18 @@ export const AppRoutes: Routes = [
         loadChildren: './inicio/inicio.module#InicioModule',
         canActivate: [AuthGuard]
     },{
-        path: 'clientes',
-        loadChildren: './clientes/clientes.module#ClientesModule',
+        path: 'control',
+        loadChildren: './control/control.module#ControlModule',
         canActivate: [AuthGuard]
     }, {
-        path: 'components',
-        loadChildren: './components/components.module#ComponentsModule'
-    }, {
-        path: 'forms',
-        loadChildren: './forms/forms.module#Forms'
-    }, {
-        path: 'tables',
-        loadChildren: './tables/tables.module#TablesModule'
-    }, {
-        path: 'maps',
-        loadChildren: './maps/maps.module#MapsModule'
-    }, {
-        path: 'widgets',
-        loadChildren: './widgets/widgets.module#WidgetsModule'
+        path: 'clientes',
+        loadChildren: './clientes/clientes.module#ClientesModule'
     }, {
         path: 'charts',
         loadChildren: './charts/charts.module#ChartsModule'
     }, {
-        path: 'calendar',
-        loadChildren: './calendar/calendar.module#CalendarModule'
-    }, {
         path: '',
         loadChildren: './userpage/user.module#UserModule'
-    }, {
-        path: '',
-        loadChildren: './timeline/timeline.module#TimelineModule'
     }
   ]}, {
       path: '',

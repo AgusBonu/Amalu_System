@@ -14,8 +14,7 @@ class DataTablesResponse {
 
 export class ListadoComponent implements OnInit {
 
-  displayedColumns = ['idpersona'];
-  data : any[];
+  displayedColumns = ['idpersona', 'tipo_persona' , 'nombre', 'tipo_documento', 'num_documento', 'direccion', 'telefono', 'email'];
   dataSource;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -37,24 +36,15 @@ export class ListadoComponent implements OnInit {
   cargartabla(){
    
     this.http.post<DataTablesResponse>(
-      'http://localhost/webservice/ListarClientes.php',
+      'https://dab-development.com/webservice/ajax/control.php?op=listar',
        {}
     ).subscribe(resp => {
-      this.data = resp.data;
-      this.dataSource = new MatTableDataSource<Element>(this.data);
-      this.dataSource.paginator = this.paginator;
-      this.dataSource.sort = this.sort;
+      if (resp != null)
+      {
+        this.dataSource = new MatTableDataSource<Element>(resp.data);
+        this.dataSource.paginator = this.paginator;
+        this.dataSource.sort = this.sort;
+      }
     });
   }
-}
-
-export interface Element {
-  idpersona: number;
-  1: string;
-  2: string;
-  3: string;
-  4: string;
-  5: string;
-  6: string;
-  7: number;
 }

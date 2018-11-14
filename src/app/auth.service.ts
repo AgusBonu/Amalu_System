@@ -24,7 +24,7 @@ export class AuthService {
 
   getUserDetails(username, password) {
     // post these details to API server return user info if correct
-    return this.http.post<myData>('http://localhost/webservice/auth.php', {
+    return this.http.post<myData>('https://dab-development.com/webservice/auth.php', {
     //return this.http.post<myData>('http://www.elta.com.ar/prueba/auth.php', {
       username,
       password

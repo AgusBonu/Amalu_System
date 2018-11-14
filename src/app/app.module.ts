@@ -48,8 +48,7 @@ import { FixedpluginModule} from './shared/fixedplugin/fixedplugin.module';
 import { AdminLayoutComponent } from './layouts/admin/admin-layout.component';
 import { AuthLayoutComponent } from './layouts/auth/auth-layout.component';
 
-import { AuthService } from './auth.service'
-import { UserService } from './user.service'
+import { AuthService } from './auth.service';
 import { AuthGuard } from './auth.guard';
 import { AppRoutes } from './app.routing';
 
@@ -109,7 +108,7 @@ export class MaterialModule {}
         AdminLayoutComponent,
         AuthLayoutComponent
     ],
-    providers: [AuthService, UserService, AuthGuard],
+    providers: [AuthService, AuthGuard],
     bootstrap:    [ AppComponent ]
 })
 export class AppModule { }
