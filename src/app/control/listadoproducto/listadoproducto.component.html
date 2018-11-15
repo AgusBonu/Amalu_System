@@ -114,39 +114,31 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <mat-form-field class="example-full-width has-label" [ngClass]="displayFieldCss(register, 'nombre')">
-                                    <input type="text" matInput placeholder="Nombre" formControlName="nombre">
+                                    <input type="text" value=" {{ nombre }}" matInput placeholder="Nombre" formControlName="nombre">
                                     <app-field-error-display [displayError]="isFieldValid(register, 'nombre')" errorMsg="Ingrese un nombre!!!">
                                     </app-field-error-display>
                                 </mat-form-field>
 
-                                <mat-form-field>
-                                    <mat-select placeholder="Categoria" name="categoria" formControlName="categoria">
-                                        <mat-option *ngFor="let item of categorias" [value]="item[0]">
-                                            {{ item[1] }}
-                                        </mat-option>
-                                    </mat-select>
-                                </mat-form-field>
-
                                 <mat-form-field class="example-full-width has-label" [ngClass]="displayFieldCss(register, 'cantidad')">
-                                    <input type="text" matInput placeholder="Cantidad" formControlName="cantidad">
+                                    <input type="text" value=" {{ cantidad }}" matInput placeholder="Cantidad" formControlName="cantidad">
                                     <app-field-error-display [displayError]="isFieldValid(register, 'cantidad')" errorMsg="Ingrese una cantidad!!!">
                                     </app-field-error-display>
                                 </mat-form-field>
 
                                 <mat-form-field class="example-full-width has-label" [ngClass]="displayFieldCss(register, 'descripcion')">
-                                    <input type="text" matInput placeholder="Descripcion" formControlName="descripcion">
+                                    <input type="text" value=" {{ descripcion }}" matInput placeholder="Descripcion" formControlName="descripcion">
                                     <app-field-error-display [displayError]="isFieldValid(register, 'descripcion')" errorMsg="Ingrese un descripcion!!!">
                                     </app-field-error-display>
                                 </mat-form-field>
 
                                 <mat-form-field class="example-full-width has-label" [ngClass]="displayFieldCss(register, 'precio')">
-                                    <input type="text" matInput placeholder="Precio" formControlName="precio">
+                                    <input type="text" value=" {{ precio }}" matInput placeholder="Precio" formControlName="precio">
                                     <app-field-error-display [displayError]="isFieldValid(register, 'precio')" errorMsg="Ingrese un precio!!!">
                                     </app-field-error-display>
                                 </mat-form-field>
 
                                 <mat-form-field class="example-full-width has-label" [ngClass]="displayFieldCss(register, 'talle')">
-                                    <input type="text" matInput placeholder="Talle" formControlName="talle">
+                                    <input type="text" value=" {{ talle }}" matInput placeholder="Talle" formControlName="talle">
                                     <app-field-error-display [displayError]="isFieldValid(register, 'talle')" errorMsg="Ingrese un talle!!!">
                                     </app-field-error-display>
                                 </mat-form-field>

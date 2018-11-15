@@ -20,7 +20,11 @@ export class ListadoComponent implements OnInit {
   imgPath = "https:\\www.dab-development.com/assets/img/";
   register : FormGroup;
   nombre: string;
-  categoria: string;
+  cantidad: string;
+  descripcion: string;
+  precio: string;
+  talle: string;
+  idarticulo: number;
   
   @ViewChild(MatPaginator) paginator: MatPaginator;
   constructor(private http: HttpClient, private formBuilder: FormBuilder) {}
@@ -49,14 +53,18 @@ export class ListadoComponent implements OnInit {
   }
 
 
-editar(){
+editar(id: number){
+  let parametro = id;
   this.http.post<any>(
     'https://dab-development.com/webservice/ajax/control.php?op=listarproductodetalle',
-     {
-
-     }
+     {parametro}
   ).subscribe(resp => {
-    
+    this.idarticulo = resp.data[0].idarticulo;
+    this.nombre = resp.data[0].nombre;
+    this.cantidad = resp.data[0].cantidad;
+    this.descripcion = resp.data[0].descripcion;
+    this.precio = resp.data[0].precio;
+    this.talle = resp.data[0].talle;
   });
 }
 
