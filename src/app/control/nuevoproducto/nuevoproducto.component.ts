@@ -45,6 +45,7 @@ export class NuevoProductoComponent implements OnInit{
           cantidad: [null, Validators.required],
           precio: [null, Validators.required],
           talle: [null, Validators.required],
+          link: [null, Validators.required]
         });
     }
     
@@ -110,6 +111,7 @@ export class NuevoProductoComponent implements OnInit{
       fd.append('descripcion', this.f.descripcion.value);
       fd.append('precio', this.f.precio.value);
       fd.append('talle', this.f.talle.value);
+      fd.append('link', this.f.link.value);
 
       this.http.post<any>(
         'https://dab-development.com/webservice/ajax/control.php?op=registrarproducto',
@@ -126,6 +128,7 @@ export class NuevoProductoComponent implements OnInit{
         this.register.reset();
       });
     } else {
+      console.log(this.register);
       this.validateAllFormFields(this.register);
     }
   }

@@ -15,16 +15,17 @@ export class ListadoComponent implements OnInit {
 
 
 
-  displayedColumns = ['accion', 'idarticulo', 'idcategoria','nombre', 'stock', 'descripcion', 'imagen', 'precio', 'condicion', 'talle'];
+  displayedColumns = ['accion', 'idarticulo', 'idcategoria','nombre', 'stock', 'descripcion', 'imagen', 'precio', 'condicion', 'talle', 'link'];
   dataSource;
   imgPath = "https:\\www.dab-development.com/assets/img/";
-  register : FormGroup;
+  registerEdit : FormGroup;
   nombre: string;
   cantidad: string;
   descripcion: string;
   precio: string;
   talle: string;
-  idarticulo: number;
+  idarticulo: string;
+  link: number;
   
   @ViewChild(MatPaginator) paginator: MatPaginator;
   constructor(private http: HttpClient, private formBuilder: FormBuilder) {}
@@ -41,14 +42,13 @@ export class ListadoComponent implements OnInit {
   ngOnInit() {
  
     this.cargartabla();
-    this.register = this.formBuilder.group({
-      nombre: ['', Validators.required],
-      categoria: ['', Validators.required],
-      descripcion: ['', Validators.required],
-      imagen: ['', Validators.required],
-      cantidad: [null, Validators.required],
-      precio: [null, Validators.required],
-      talle: [null, Validators.required],
+    this.registerEdit = this.formBuilder.group({
+      nombreEdit: ['', Validators.required],
+      descripcionEdit: ['', Validators.required],
+      cantidadEdit: [null, Validators.required],
+      precioEdit: [null, Validators.required],
+      talleEdit: [null, Validators.required],
+      linkEdit: [null, Validators.required],
     });
   }
 
@@ -65,6 +65,7 @@ editar(id: number){
     this.descripcion = resp.data[0].descripcion;
     this.precio = resp.data[0].precio;
     this.talle = resp.data[0].talle;
+    this.link = resp.data[0].link;
   });
 }
 
@@ -108,11 +109,35 @@ editar(id: number){
   })
   }
 
-  onRegister(){
-    
+  onUpdate(){
+    if (this.registerEdit.valid) {
+      const fd = new FormData();
+      fd.append('idarticulo', this.idarticulo);
+      fd.append('nombre', this.f.nombreEdit.value);
+      fd.append('cantidad', this.f.cantidadEdit.value);
+      fd.append('descripcion', this.f.descripcionEdit.value);
+      fd.append('precio', this.f.precioEdit.value);
+      fd.append('talle', this.f.talleEdit.value);
+      fd.append('link', this.f.linkEdit.value);
+
+      this.http.post<any>(
+        'https://dab-development.com/webservice/ajax/control.php?op=actualizarproducto',
+        fd,
+         {}
+      ).subscribe(resp => {
+        swal({
+          title: "Exito!",
+          text: "Producto actualizado correctamente!",
+          buttonsStyling: false,
+          confirmButtonClass: "btn btn-success",
+          type: "success"
+        }).catch(swal.noop);
+        this.registerEdit.reset();
+      });
+    } 
   }
   // convenience getter for easy access to form fields
-  get f() { return this.register.controls; }
+  get f() { return this.registerEdit.controls; }
 
   isFieldValid(form: FormGroup, field: string) {
     return !form.get(field).valid && form.get(field).touched;

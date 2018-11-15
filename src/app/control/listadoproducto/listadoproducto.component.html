@@ -84,9 +84,14 @@
                         <!-- Position Column -->
                         <ng-container matColumnDef="talle">
                             <mat-header-cell *matHeaderCellDef> Talle </mat-header-cell>
-                            <mat-cell *matCellDef="let element" class="text-center"> {{element[7]}} </mat-cell>
+                            <mat-cell *matCellDef="let element" class="text-center"> {{element[8]}} </mat-cell>
                         </ng-container>
 
+                        <!-- Position Column -->
+                        <ng-container matColumnDef="link">
+                            <mat-header-cell *matHeaderCellDef> Link </mat-header-cell>
+                            <mat-cell *matCellDef="let element" class="text-center"> {{element[9]}} </mat-cell>
+                        </ng-container>
                         <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
                         <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
                     </mat-table>
@@ -109,62 +114,53 @@
                                               </button>
             </div>
             <div class="modal-body">
-                <form [formGroup]="register">
+                <form [formGroup]="registerEdit">
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-6">
-                                <mat-form-field class="example-full-width has-label" [ngClass]="displayFieldCss(register, 'nombre')">
-                                    <input type="text" value=" {{ nombre }}" matInput placeholder="Nombre" formControlName="nombre">
-                                    <app-field-error-display [displayError]="isFieldValid(register, 'nombre')" errorMsg="Ingrese un nombre!!!">
+                                <mat-form-field class="example-full-width has-label" [ngClass]="displayFieldCss(registerEdit, 'nombreEdit')">
+                                    <input type="text" value=" {{ nombre }}" matInput placeholder="Nombre" formControlName="nombreEdit">
+                                    <app-field-error-display [displayError]="isFieldValid(registerEdit, 'nombreEdit')" errorMsg="Ingrese un nombre!!!">
                                     </app-field-error-display>
                                 </mat-form-field>
 
-                                <mat-form-field class="example-full-width has-label" [ngClass]="displayFieldCss(register, 'cantidad')">
-                                    <input type="text" value=" {{ cantidad }}" matInput placeholder="Cantidad" formControlName="cantidad">
-                                    <app-field-error-display [displayError]="isFieldValid(register, 'cantidad')" errorMsg="Ingrese una cantidad!!!">
+                                <mat-form-field class="example-full-width has-label" [ngClass]="displayFieldCss(registerEdit, 'cantidadEdit')">
+                                    <input type="text" value=" {{ cantidad }}" matInput placeholder="CantidadEdit" formControlName="cantidadEdit">
+                                    <app-field-error-display [displayError]="isFieldValid(registerEdit, 'cantidadEdit')" errorMsg="Ingrese una cantidad!!!">
                                     </app-field-error-display>
                                 </mat-form-field>
 
-                                <mat-form-field class="example-full-width has-label" [ngClass]="displayFieldCss(register, 'descripcion')">
-                                    <input type="text" value=" {{ descripcion }}" matInput placeholder="Descripcion" formControlName="descripcion">
-                                    <app-field-error-display [displayError]="isFieldValid(register, 'descripcion')" errorMsg="Ingrese un descripcion!!!">
+                                <mat-form-field class="example-full-width has-label" [ngClass]="displayFieldCss(registerEdit, 'descripcionEdit')">
+                                    <input type="text" value=" {{ descripcion }}" matInput placeholder="Descripcion" formControlName="descripcionEdit">
+                                    <app-field-error-display [displayError]="isFieldValid(registerEdit, 'descripcionEdit')" errorMsg="Ingrese un descripcion!!!">
                                     </app-field-error-display>
                                 </mat-form-field>
 
-                                <mat-form-field class="example-full-width has-label" [ngClass]="displayFieldCss(register, 'precio')">
-                                    <input type="text" value=" {{ precio }}" matInput placeholder="Precio" formControlName="precio">
-                                    <app-field-error-display [displayError]="isFieldValid(register, 'precio')" errorMsg="Ingrese un precio!!!">
-                                    </app-field-error-display>
-                                </mat-form-field>
 
-                                <mat-form-field class="example-full-width has-label" [ngClass]="displayFieldCss(register, 'talle')">
-                                    <input type="text" value=" {{ talle }}" matInput placeholder="Talle" formControlName="talle">
-                                    <app-field-error-display [displayError]="isFieldValid(register, 'talle')" errorMsg="Ingrese un talle!!!">
-                                    </app-field-error-display>
-                                </mat-form-field>
                             </div>
                             <div class="col-md-6">
-                                <div class="fileinput fileinput-new text-center" data-provides="fileinput">
-                                    <div class="fileinput-new thumbnail">
-                                        <img src="./assets/img/image_placeholder.jpg" alt="...">
-                                    </div>
-                                    <div class="fileinput-preview fileinput-exists thumbnail"></div>
-                                    <div>
-                                        <span class="btn btn-success btn-round btn-file">
-                                                    <span class="fileinput-new">Select image</span>
-                                        <span class="fileinput-exists">Change</span>
+                                <mat-form-field class="example-full-width has-label" [ngClass]="displayFieldCss(registerEdit, 'precioEdit')">
+                                    <input type="text" value=" {{ precio }}" matInput placeholder="Precio" formControlName="precioEdit">
+                                    <app-field-error-display [displayError]="isFieldValid(registerEdit, 'precioEdit')" errorMsg="Ingrese un precio!!!">
+                                    </app-field-error-display>
+                                </mat-form-field>
 
-                                        <input type="file" (change)="onFileSelected($event)" formControlName="imagen" />
+                                <mat-form-field class="example-full-width has-label" [ngClass]="displayFieldCss(registerEdit, 'talleEdit')">
+                                    <input type="text" value=" {{ talle }}" matInput placeholder="Talle" formControlName="talleEdit">
+                                    <app-field-error-display [displayError]="isFieldValid(registerEdit, 'talleEdit')" errorMsg="Ingrese un talle!!!">
+                                    </app-field-error-display>
+                                </mat-form-field>
 
-                                        </span>
-                                        <a href="#pablo" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
-                                    </div>
-                                </div>
+                                <mat-form-field class="example-full-width has-label" [ngClass]="displayFieldCss(registerEdit, 'linkEdit')">
+                                    <input type="text" value=" {{ link }}" matInput placeholder="Link" formControlName="linkEdit">
+                                    <app-field-error-display [displayError]="isFieldValid(registerEdit, 'linkEdit')" errorMsg="Ingrese un link!!!">
+                                    </app-field-error-display>
+                                </mat-form-field>
                             </div>
                         </div>
                     </div>
                     <div class="card-footer text-right">
-                        <input value="Registrar" mat-raised-button type="submit" class="btn btn-success" (click)="onRegister()" />
+                        <input value="Registrar" mat-raised-button type="submit" class="btn btn-success" (click)="onUpdate()" />
                     </div>
                 </form>
             </div>

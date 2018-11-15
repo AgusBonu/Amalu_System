@@ -42,6 +42,12 @@
                                 <app-field-error-display [displayError]="isFieldValid(register, 'talle')" errorMsg="Ingrese un talle!!!">
                                 </app-field-error-display>
                             </mat-form-field>
+
+                            <mat-form-field class="example-full-width has-label" [ngClass]="displayFieldCss(register, 'link')">
+                                <input type="link" matInput placeholder="Link" formControlName="link">
+                                <app-field-error-display [displayError]="isFieldValid(register, 'link')" errorMsg="Ingrese un link!!!">
+                                </app-field-error-display>
+                            </mat-form-field>
                         </div>
                         <div class="col-md-6">
                             <div class="fileinput fileinput-new text-center" data-provides="fileinput">
