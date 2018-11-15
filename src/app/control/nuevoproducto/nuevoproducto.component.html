@@ -36,6 +36,12 @@
                                 <app-field-error-display [displayError]="isFieldValid(register, 'precio')" errorMsg="Ingrese un precio!!!">
                                 </app-field-error-display>
                             </mat-form-field>
+
+                            <mat-form-field class="example-full-width has-label" [ngClass]="displayFieldCss(register, 'talle')">
+                                <input type="text" matInput placeholder="Talle" formControlName="talle">
+                                <app-field-error-display [displayError]="isFieldValid(register, 'talle')" errorMsg="Ingrese un talle!!!">
+                                </app-field-error-display>
+                            </mat-form-field>
                         </div>
                         <div class="col-md-6">
                             <div class="fileinput fileinput-new text-center" data-provides="fileinput">

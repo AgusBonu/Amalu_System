@@ -19,6 +19,7 @@ export class ListadoUsuarioComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   constructor(private http: HttpClient) {}
 
+ 
 
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
